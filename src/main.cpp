@@ -1,5 +1,7 @@
 #include "lks32mc07x_lib.h"
 #include "system_lks32mc07x.h"
+#include "Serial.hpp"
+#include <string>
 
 int main(void)
 {
@@ -18,18 +20,14 @@ int main(void)
     GPIO_PinAFConfig(GPIO0, GPIO_PinSource_6, AF4_UART);
     GPIO_PinAFConfig(GPIO0, GPIO_PinSource_7, AF4_UART);
 
-    UART_InitTypeDef uis;
-    UART_StructInit(&uis);
-    uis.BaudRate = 115200;
-    UART_Init(UART0, &uis);
+    HWSerial Serial(UART0, 115200);
+    std::string fuckStr = "Fuck The World!";
 
     while (1)
     {
-        if (UART_GetIRQFlag(UART0, UART_IF_SendOver))
-            UART_ClearIRQFlag(UART0, UART_IF_SendOver);
-        UART_SendData(UART0, 'a');
-        while (!UART_GetIRQFlag(UART0, UART_IF_SendOver))
-            ;
+        GPIO_SetBits(GPIO0, GPIO_Pin_0);
+        Serial.println(fuckStr);
+        GPIO_ResetBits(GPIO0, GPIO_Pin_0);
         delay1ms(1000);
     }
 }
