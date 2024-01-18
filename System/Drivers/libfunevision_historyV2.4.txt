@@ -1,0 +1,27 @@
+lks32mc07x_periph_driver V2.4
+1、CMP.c文件，函数CMP_Cmd（）内增加SYS_ModuleClockCmd(SYS_Module_CMP,state);//数字电路时钟使能。
+
+lks32mc07x_periph_driver V2.3
+1、修正CAN发送函数内等待CAN发送完成判断条件，修正后可支持连续发生CAN数据，不需要在两帧之间加延时函数等待CAN发送完成再发送下一帧。
+2、修改GPIO_WriteBit和GPIO_Write函数，操作GPIOx->BSRR和GPIOx->BRR进行GPIO置1和清零。
+
+lks32mc07x_periph_driver V2.2
+修正低功耗休眠文件void Switch2HRC(void)函数内应该读取SYS_AFE_REG5。
+
+lks32mc07x_periph_driver V2.1
+更新CAN ID滤波函数将CAN模式配置为复位模式后没有在还原为正常模式，导致程序不运行一次发送函数就无法接收问题。
+
+lks32mc07x_periph_driver V2.0
+更新dma.c，dma.h库函数事例注释和sif.c,sif.h库函数（之前的库函数不符合实际使用，目前全面修改工程应用可直接使用）。
+
+lks32mc07x_periph_driver V1.0
+1、更新lks32mc07x_adc.c库函数软件触发函数，支持ADC0和ADC1软件触发，更改前只支持ADC0软件触发。
+void ADC_SoftTrgEN(ADC_TypeDef *ADCx, FuncState state)
+{
+ if (state == ENABLE)
+ {
+//  ADC0_SWT = 0x5AA5;  //更改前
+    ADCx->SWT = 0x5AA5;//更改后
+ }
+}
+
