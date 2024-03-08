@@ -1,0 +1,74 @@
+{
+"LKS32MC07x": {
+  "name": "LKS32MC07x",
+  "memories": {
+    "IRAM1": {
+      "p_name": null,
+      "access": {
+        "read": true,
+        "write": true,
+        "execute": false,
+        "peripheral": false,
+        "secure": false,
+        "non_secure": false,
+        "non_secure_callable": false
+      },
+      "start": 536870912,
+      "size": 12288,
+      "startup": false,
+      "default": true
+    },
+    "IROM1": {
+      "p_name": null,
+      "access": {
+        "read": true,
+        "write": false,
+        "execute": true,
+        "peripheral": false,
+        "secure": false,
+        "non_secure": false,
+        "non_secure_callable": false
+      },
+      "start": 0,
+      "size": 65536,
+      "startup": true,
+      "default": true
+    }
+  },
+  "algorithms": [
+    {
+      "file_name": "CMSIS/Flash/LKS32MC07x_64kB.FLM",
+      "start": 0,
+      "size": 65536,
+      "default": true,
+      "ram_start": null,
+      "ram_size": null,
+      "style": "Keil"
+    }
+  ],
+  "processors": [
+    {
+      "core": "CortexM0",
+      "fpu": "None",
+      "mpu": "NotPresent",
+      "ap": 0,
+      "dp": 0,
+      "apid": null,
+      "address": null,
+      "svd": "CMSIS/SVD/LKS32MC07x.svd",
+      "name": null,
+      "unit": 0,
+      "default_reset_sequence": null
+    }
+  ],
+  "from_pack": {
+    "vendor": "Linko",
+    "pack": "LKS07x",
+    "version": "1.1.2",
+    "url": "https://www.lksmcu.com/index.php/LKS07Series/"
+  },
+  "vendor": "Linko:1020",
+  "family": "LKS07 Series",
+  "sub_family": "LKS32MC07x"
+}
+}

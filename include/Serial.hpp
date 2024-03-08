@@ -1,7 +1,14 @@
 #pragma once
 
 #include "lks32mc07x_lib.h"
-#include <string>
+
+enum Radix
+{
+    BIN = 2,
+    OCT = 8,
+    DEC = 10,
+    HEX = 16
+};
 
 class HWSerial
 {
@@ -15,33 +22,43 @@ public:
         _uart = uart;
         UART_StructInit(&is);
         is.BaudRate = baudrate;
+        is.IRQEna = UART_IRQEna_SendOver | UART_IRQEna_RcvOver;
         UART_Init(_uart, &is);
     }
 
-    void println(char *str = nullptr)
+    void print(long num, Radix radix = DEC)
     {
-        while (*str)
+        char str[20];
+        itoa(num, str, radix);
+        print(str);
+    }
+
+    void print(const char str[])
+    {
+        auto len = strlen(str);
+        while (len--)
         {
             UART_SendData(_uart, *str++);
-
             while (!UART_GetIRQFlag(_uart, UART_IF_SendOver))
                 ;
+            UART_ClearIRQFlag(_uart, UART_IF_SendOver);
         }
-        UART_SendData(_uart, '\r');
-        while (!UART_GetIRQFlag(_uart, UART_IF_SendOver))
-            ;
-        UART_SendData(_uart, '\n');
-        while (!UART_GetIRQFlag(_uart, UART_IF_SendOver))
-            ;
     }
-    void println(std::string str)
+
+    void println()
     {
-        for (auto c : str)
-        {
-            UART_SendData(_uart, c);
-            while (!UART_GetIRQFlag(_uart, UART_IF_SendOver))
-                ;
-        }
+        print("\r\n");
+    }
+
+    void println(const char str[])
+    {
+        print(str);
+        println();
+    }
+
+    void println(long num, Radix radix = DEC)
+    {
+        print(num, radix);
         println();
     }
 };

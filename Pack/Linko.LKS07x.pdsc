@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Linko</vendor>
+  <name>LKS07x</name>
+  <description>LKS07 Device Family Pack</description>
+  <url>https://www.lksmcu.com/index.php/LKS07Series</url>
+  <supportContact>contact@lksmcu.com</supportContact>
+  <!-- optional license file -->
+  <!-- 
+  <license>
+  </license>
+  -->
+  
+  <releases>
+    <release version="1.0.0">
+      Initial Version
+    </release>
+    <release version="1.0.1">
+      Startup files included
+    </release>
+    <release version="1.0.2">
+      SVD and header file included
+    </release>
+    <release version="1.0.3">
+      Flash Programming Algorithms added
+    </release>
+    <release version="1.0.4">
+      DFP finalized
+    </release>
+	<release version="1.0.5">
+      Roll back to old-style header file to be compatible with device driver
+    </release>
+	<release version="1.0.6">
+      Add device specific macro definition
+    </release>
+	<release version="1.0.7">
+      Add 071DO,074DO,074D, remove 074F
+    </release>
+	<release version="1.0.8">
+      Add device micro definition
+    </release>
+	<release version="1.0.9">
+      updata CAN register
+    </release>
+	<release version="1.1.0">
+      Updata flash
+    </release>
+	<release version="1.1.1">
+      add chip model
+    </release>
+  <release version="1.1.2">
+      Actively overwrite TBS
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Linko</keyword>
+    <keyword>LKS07x</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="LKS07 Series" Dvendor="Linko:1020">
+      <processor Dcore="Cortex-M0" DcoreVersion="r2p1" Dfpu="0" Dmpu="0" Dendian="Little-endian"/>
+      <compile   header="Device\Include\LKS32MC07x.h"/>
+      <debug     svd="SVD\LKS32MC07x.svd"/>
+      <!--book      name="Docs\LKS32MC07x_Datasheet_EN_v2.36.pdf"   			title="LKS32MC07x Datasheet EN"/-->
+      <book      name="Docs\LKS32MC07x_Datasheet_v1.0.pdf"       				title="LKS32MC07x Datasheet"/>
+	  <!--book      name="Docs\LKS32MC07x_3P3N_Datasheet_EN_v2.47.pdf"   		title="LKS32MC07x 3P3N Datasheet EN"/-->
+      <book      name="Docs\LKS32MC07x_3P3N_Datasheet_v1.0.pdf"          		title="LKS32MC07x 3P3N Datasheet"/>
+	  <!--book      name="Docs\LKS32MC07x_6N_Datasheet_EN_v2.36.pdf"   			title="LKS32MC07x 6N Datasheet EN"/-->
+      <book      name="Docs\LKS32MC07x_6N_Datasheet_v1.0.pdf"       			title="LKS32MC07x 6N Datasheet"/>
+      <!--book      name="Docs\LKS32MC07x_User_Manual_EN_v1.41.pdf"    			title="LKS32MC07x User Manual EN"/-->
+      <book      name="Docs\LKS32MC07x_User_Manual_v1.0.pdf"   				    title="LKS32MC07x User Manual"/>
+      <!--book      name="Docs\LKS32MC07x_Errata_v1.1.pdf" 						title="LKS32MC07x_Errata"/-->
+      <feature type="Temp"          n="-40"     m="105"   name="Extended Temperature Range"/>
+      <feature type="VCC"           n="2.2"     m="5.5"/>
+      <description>
+        The LKS07 device family contains an ARM Cortex-M0 processor, running up to 48 MHz with a versatile set of on-chip peripherals.
+      </description>
+      <!-- ************************  Subfamily 'LKS07'  **************************** -->
+        <processor  Dclock="96000000"/>
+        <!-- *************************  Device 'LKS32MC070RBT8'  ***************************** -->
+        <device Dname="LKS32MC070RBT8">
+		  <compile   define="LKS32MC070RBT8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x.FLM"      start="0x00000000"  size="0x20000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="62"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="1"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFP"            n="64"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+		<!-- *************************  Device 'LKS32MC070FLRBT8'  ***************************** -->
+        <device Dname="LKS32MC070FLRBT8">
+		  <compile   define="LKS32MC070FLRBT8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x.FLM"      start="0x00000000"  size="0x20000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="43"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="1"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFP"            n="64"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+        <!-- *************************  Device 'LKS32MC071CBT8'  ***************************** -->
+        <device Dname="LKS32MC071CBT8">
+		  <compile   define="LKS32MC071CBT8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x.FLM"      start="0x00000000"  size="0x20000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="46"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="1"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFP"            n="48"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+	    <!-- *************************  Device 'LKS32MC071C8T8'  ***************************** -->
+        <device Dname="LKS32MC071C8T8">
+		  <compile   define="LKS32MC071C8T8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x10000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="44"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="1"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFP"            n="48"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+	    <!-- *************************  Device 'LKS32MC071DOC8T8'  ***************************** -->
+        <device Dname="LKS32MC071DOC8T8">
+		  <compile   define="LKS32MC071DOC8T8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x10000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="28"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="1"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFP"            n="48"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+        <!-- *************************  Device 'LKS32MC072K8Q8'  ***************************** -->
+        <device Dname="LKS32MC072K8Q8">
+		  <compile   define="LKS32MC072K8Q8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x20000"     default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="31"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="0"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFN"            n="32"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+        <!-- *************************  Device 'LKS32MC074DF8Q8'  ***************************** -->
+        <device Dname="LKS32MC074DF8Q8">
+		  <compile   define="LKS32MC074DF8Q8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x10000"     default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="25"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="0"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFN"            n="40"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+	    <!-- *************************  Device 'LKS32MC074DOF8Q8'  ***************************** -->
+        <device Dname="LKS32MC074DOF8Q8">
+		  <compile   define="LKS32MC074DOF8Q8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x10000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="25"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="0"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFN"            n="40"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+        <!-- *************************  Device 'LKS32MC076FNBQ8'  ***************************** -->
+        <device Dname="LKS32MC076FNBQ8">
+		  <compile   define="LKS32MC076FNBQ8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x.FLM"      start="0x00000000"  size="0x20000"    default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="37"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="1"/>
+          <feature    type="I2C"            n="1"/>
+          <feature    type="SPI"            n="1"/>
+          <feature    type="UART"           n="2"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="QFN"            n="52"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+        <!-- *************************  Device 'LKS32MC077M8S8'  ***************************** -->
+        <device Dname="LKS32MC077M8S8">
+		  <compile   define="LKS32MC077M8S8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x20000"     default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="22"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="0"/>
+          <feature    type="UART"           n="1"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="SOP"            n="24"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+        <!-- *************************  Device 'LKS32MC077EM8S8'  ***************************** -->
+        <device Dname="LKS32MC077EM8S8">
+		  <compile   define="LKS32MC077EM8S8"/>
+          <memory     id="IROM1"                      start="0x00000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory     id="IRAM1"                      start="0x20000000"  size="0x3000"     init   ="0"   default="1"/>
+          <algorithm name="Flash\LKS32MC07x_64kB.FLM" start="0x00000000"  size="0x10000"     default="1"/>
+          <feature    type="PWM"            n="6" m="16"/>
+          <feature    type="IOs"            n="14"/>
+          <feature    type="DMA"            n="1"/>
+          <feature    type="CAN"            n="0"/>
+          <feature    type="UART"           n="1"/>
+          <feature    type="Timer"          n="4"/>
+          <feature    type="SOP"            n="24"/>
+          <feature    type="ADC"            n="12bit"/>
+          <feature    type="DAC"            n="12bit"/>
+        </device>
+    </family>
+  </devices>
+
+  <!-- Add the following code to the <conditions> section in the PDSC file -->
+
+  <conditions>
+    <condition id="LKS07x CMSIS-CORE">
+      <!-- conditions selecting Devices -->
+      <description>Linko LKS07 Series devices and CMSIS-CORE</description>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+      <require Dvendor="Linko:1020" Dname="LKS32MC07*"/>
+    </condition>
+    <condition id="Startup ARM">
+      <description>Startup assembler file for ARMCC</description>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+  </conditions>
+  
+  <!-- Add the following code to the <components> section in the PDSC file -->
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.0" condition="LKS07x CMSIS-CORE">
+      <description>System Startup for Linko LKS07x Series</description>
+      <files>
+       <!--  include folder -->
+       <file category="include" name="Device\Include\"/>
+
+        <file category="source"  name="Device\Source\ARM\startup_lks32mc07x.s" attr="config" condition="Startup ARM" version="1.0.0"/>
+      </files>
+    </component>
+  </components>
+
+
+  <!-- Add the following code to the <examples> section -->
+          
+
+  <!-- Add the following code to the <releases> section in the PDSC file -->  
+
+
+    
+</package>
