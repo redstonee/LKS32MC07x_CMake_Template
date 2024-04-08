@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
 
-# Set the toolchain location if using Windows
-set(TOOLCHAIN_PREFIX "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1")
-
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_LIST_DIR}/toolchain-arm-none-eabi.cmake)
 
 project(fuckLKS32)

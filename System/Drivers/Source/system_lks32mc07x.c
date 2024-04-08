@@ -16,10 +16,6 @@
 
 uint32_t SystemCoreClock = 96000000;
 
-void SystemCoreClockUpdate(void) // Update SystemCoreClock variable
-{
-    SystemCoreClock = 8000000;
-}
 
 /**
  ******************************************************************************
